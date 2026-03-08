@@ -1,0 +1,457 @@
+/**
+ * QMV Magic Login - Frontend Styles
+ */
+
+/* Prevent body scroll when modal is open */
+body.qml-modal-open {
+    overflow: hidden !important;
+}
+
+/* Modal Overlay - Blocking with strong blur */
+.qml-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.qml-modal-overlay.qml-blocking {
+    /* Extra strong blur for blocking mode */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.qml-modal-overlay.qml-visible {
+    opacity: 1;
+}
+
+/* Modal Container */
+.qml-modal {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.qml-modal-overlay.qml-visible .qml-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* Close Button */
+.qml-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f3f4f6;
+    border-radius: 8px;
+    font-size: 20px;
+    line-height: 1;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qml-modal-close:hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+/* Modal Header */
+.qml-modal-header {
+    padding: 32px 32px 24px;
+    text-align: center;
+}
+
+.qml-logo {
+    margin-bottom: 16px;
+}
+
+.qml-site-logo {
+    max-height: 60px;
+    width: auto;
+}
+
+.qml-modal-title {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.qml-modal-subtitle {
+    margin: 0;
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Modal Body */
+.qml-modal-body {
+    padding: 0 32px 24px;
+}
+
+/* Form Styles */
+.qml-form {
+    margin: 0;
+}
+
+.qml-form-group {
+    margin-bottom: 20px;
+}
+
+.qml-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.qml-input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2937;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.qml-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.qml-input::placeholder {
+    color: #9ca3af;
+}
+
+/* OTP Input Grid */
+.qml-otp-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.qml-otp-digit {
+    width: 52px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2937;
+    transition: all 0.2s ease;
+}
+
+.qml-otp-digit:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.qml-otp-digit.qml-filled {
+    border-color: #10b981;
+    background: #ecfdf5;
+}
+
+/* Consent Notice */
+.qml-consent-notice {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.qml-consent-notice p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Buttons */
+.qml-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.qml-btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.qml-btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.qml-btn-primary:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+}
+
+.qml-btn-google {
+    background: #ffffff;
+    color: #374151;
+    border: 2px solid #e5e7eb;
+}
+
+.qml-btn-google:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.qml-google-icon {
+    flex-shrink: 0;
+}
+
+/* Loading State */
+.qml-btn-loading {
+    display: none;
+}
+
+.qml-btn.qml-loading .qml-btn-text {
+    display: none;
+}
+
+.qml-btn.qml-loading .qml-btn-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qml-spinner {
+    width: 20px;
+    height: 20px;
+    animation: qml-spin 1s linear infinite;
+}
+
+@keyframes qml-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Divider */
+.qml-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.qml-divider::before,
+.qml-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.qml-divider span {
+    padding: 0 16px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Social Login */
+.qml-social-login {
+    margin-top: 0;
+}
+
+/* OTP Sent Notice */
+.qml-otp-sent-notice {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.qml-otp-sent-notice p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.qml-sent-email {
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 4px !important;
+}
+
+/* OTP Actions */
+.qml-otp-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.qml-link-btn {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s ease;
+}
+
+.qml-link-btn:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Success State */
+#qml-step-success {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.qml-success-icon {
+    margin-bottom: 16px;
+}
+
+#qml-step-success h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    color: #1f2937;
+}
+
+#qml-step-success p {
+    margin: 0;
+    color: #6b7280;
+}
+
+/* Error Message */
+.qml-error-message {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+/* Modal Footer */
+.qml-modal-footer {
+    padding: 16px 32px 24px;
+    text-align: center;
+    border-top: 1px solid #f3f4f6;
+}
+
+.qml-privacy-note {
+    margin: 0;
+    color: #9ca3af;
+}
+
+.qml-skip-btn {
+    color: #9ca3af;
+}
+
+.qml-skip-btn:hover {
+    color: #6b7280;
+}
+
+/* Step Visibility */
+.qml-step {
+    display: none;
+}
+
+.qml-step.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .qml-modal {
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+        max-height: 85vh;
+    }
+    
+    .qml-modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+    
+    .qml-modal-header,
+    .qml-modal-body,
+    .qml-modal-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .qml-otp-digit {
+        width: 46px;
+        height: 54px;
+        font-size: 20px;
+    }
+}
+
+/* Hide for logged in users */
+.logged-in .qml-modal-overlay {
+    display: none !important;
+}
+
+/* WooCommerce Account Page Styles */
+.qml-welcome-notice {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+.qml-welcome-notice .button-secondary {
+    margin-left: 10px;
+}
+
+.qml-email-preferences-form .form-row {
+    margin-bottom: 20px;
+}
+
+.qml-email-preferences-form .description {
+    display: block;
+    margin-top: 4px;
+    color: #6b7280;
+    font-size: 13px;
+}
